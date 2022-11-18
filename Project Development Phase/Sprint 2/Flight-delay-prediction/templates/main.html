@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="static/cssstyle.css">
+  
+</head>
+
+<body>
+  <div class="container">
+ <h1 class="h1" >Flight Delay Prediction</h1>
+ <div class="login">
+	
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}" method="post">
+       Quarter of the year <input type="text" name="quater" placeholder="3" required="required" min='1' max='4' />
+       Month in number<input type="text" name="month" placeholder="12" required="required" min='1' max='12'/>
+	   Day of the Month<input type="text" name="daym" placeholder="28" required="required" min='1' max='31'/>
+	   Day of the week<input type="text" name="dayw" placeholder="7" required="required" min='1' max='7'/>
+       Flight Number<input type="text" name="fnum" placeholder="2823" required="required" max="9999"/>
+	  
+	   Origin Airport: <select name="airport" class="origin">
+      <option value='1'>ATL</option>
+      <option value='2'>DWT</option>
+      <option value='3'>JFK</option>
+      <option value='4'>MSP</option>
+      <option value='5'>SEA</option>
+	  </select><br><br>
+	  Destination Airport: <select name="airportd" class="dest">
+      <option value='1'>ATL</option>
+      <option value='2'>DWT</option>
+      <option value='3'>JFK</option>
+      <option value='4'>MSP</option>
+      <option value='5'>SEA</option>
+	  </select><br><br>
+	  Planned Departure Time(format hhmm)<input type="text" name="dtime" placeholder="1647" required="required" max="9999"/>
+	  Planned Arrival Time(format hhmm)<input type="text" name="atime" placeholder="1020" required="required" max="9999"/>
+	  Estimated Traveling Time(in minutes)<input type="text" name="ttime" placeholder="240" required="required" max="9999"/>
+	  Distance(in Kms)<input type="text" name="text" placeholder="1500" required="required"min='140' max="99999"/>
+        <button type="submit" class="button-27">Predict</button>
+    </form>
+
+   <br>
+
+
+ </div>
+
+</div>
+</body>
+</html>
